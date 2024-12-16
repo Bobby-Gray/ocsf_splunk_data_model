@@ -1,0 +1,154 @@
+{
+    "$schema": "splunk_data_model_schema.json",
+    "title": "Splunk Data Model Schema",
+    "type": "object",
+    "properties": {
+      "modelName": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "objectSummary": {
+        "type": "object",
+        "properties": {
+          "Event-Based": {
+            "type": "number"
+          },
+          "Transaction-Based": {
+            "type": "number"
+          },
+          "Search-Based": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Event-Based",
+          "Transaction-Based",
+          "Search-Based"
+        ]
+      },
+      "objects": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "objectName": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "parentName": {
+              "type": "string"
+            },
+            "comment": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "fieldName": {
+                    "type": "string"
+                  },
+                  "owner": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "fieldSearch": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean"
+                  },
+                  "multivalue": {
+                    "type": "boolean"
+                  },
+                  "hidden": {
+                    "type": "boolean"
+                  },
+                  "editable": {
+                    "type": "boolean"
+                  },
+                  "displayName": {
+                    "type": "string"
+                  },
+                  "comment": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "fieldName",
+                  "owner",
+                  "type",
+                  "fieldSearch",
+                  "required",
+                  "multivalue",
+                  "hidden",
+                  "editable",
+                  "displayName",
+                  "comment"
+                ]
+              }
+            },
+            "calculations": {
+              "type": "array",
+              "items": {}
+            },
+            "constraints": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "search": {
+                    "type": "string"
+                  },
+                  "owner": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "search",
+                  "owner"
+                ]
+              }
+            },
+            "lineage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "objectName",
+            "displayName",
+            "parentName",
+            "comment",
+            "fields",
+            "calculations",
+            "constraints",
+            "lineage"
+          ]
+        }
+      },
+      "objectNameList": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "required": [
+      "modelName",
+      "displayName",
+      "description",
+      "objectSummary",
+      "objects",
+      "objectNameList"
+    ]
+  }
